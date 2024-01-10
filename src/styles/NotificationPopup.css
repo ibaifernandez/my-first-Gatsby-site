@@ -1,0 +1,89 @@
+/* Estilo para el fondo negro semitransparente */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Aplicar cuando la clase "open" está presente en el elemento */
+.overlay.open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: darkenBackground 0.5s ease forwards;
+}
+
+/* Estilo del popup de notificación */
+.notification-popup {
+    position: fixed; /* Posición fija en la ventana */
+
+    width: 300px; /* Ajusta el ancho según tus necesidades */
+    background-color: #fff; /* Color de fondo blanco */
+    border-radius: 8px; /* Ajusta el radio de borde según tus necesidades */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+    padding: 20px; /* Espaciado interno */
+    text-align: center;
+    display: none; /* Inicialmente oculto */
+    color: #000; /* Color de texto negro */
+}
+
+/* Aplicar cuando la clase "open" está presente en el elemento */
+.notification-popup.open {
+    display: block; /* Hace que el popup sea visible */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar horizontal y verticalmente */
+
+
+    animation: openNotificationsPopup 0.3s ease forwards; /* Añade la animación de apertura */
+}
+
+/* Animación de oscurecimiento del fondo */
+@keyframes darkenBackground {
+    from {
+        background: rgba(0, 0, 0, 0); /* Fondo transparente al principio */
+    }
+    to {
+        background: rgba(0, 0, 0, 0.5); /* Fondo negro semitransparente al final */
+    }
+}
+
+/* Animación de apertura del popup */
+/* Animación de apertura del popup */
+@keyframes openNotificationsPopup {
+    from {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0; /* Opacidad al principio */
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1; /* Opacidad al final */
+    }
+}
+
+
+/* Estilo adicional para el contenido del popup */
+.notification-popup p {
+    margin-bottom: 30px; /* Espaciado inferior de los párrafos */
+}
+
+/* Estilo adicional para el botón del popup */
+.notification-popup button {
+    background-color: #000; /* Color de fondo negro */
+    color: #fff; /* Color de texto blanco */
+    border: 2px solid transparent; /* Borde transparente */
+    padding: 10px 20px; /* Espaciado interno */
+    cursor: pointer; /* Cambia el cursor al pasar sobre él */
+}
+
+/* Estilo adicional para el botón del popup al pasar el cursor sobre él */
+.notification-popup button:hover {
+    background-color: #fff; /* Cambia el color de fondo a blanco */
+    color: #000; /* Cambia el color de texto a negro */
+    border: 2px #000 transparent; /* Borde negro */
+    padding: 10px 20px; /* Espaciado interno */
+    cursor: pointer; /* Cambia el cursor al pasar sobre él */
+}
